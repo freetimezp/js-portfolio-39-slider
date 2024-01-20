@@ -226,3 +226,72 @@ header nav a{
         bottom: 20px;
     }
 }
+
+
+@keyframes transformAnimation {
+    from {
+        transform: translateX(var(--transform-from));
+    }to {
+        transform: translateX(var(--transform-to));
+    }
+}
+
+.carousel.effect .item .image {
+    animation: transformAnimation 1s ease-in-out 1 forwards;
+} 
+
+.carousel.effect .item .info .title,
+.carousel.effect .item .info .category,
+.carousel.effect .item .info .desc,
+.carousel.effect .item .info a {
+    animation: transformAnimation 1s ease-in-out 1 forwards;
+}
+
+.carousel.effect .item .info .category {
+    animation-delay: .1s;
+}
+
+.carousel.effect .item .info .desc {
+    animation-delay: .2s;
+}
+
+.carousel.effect .item .info a {
+    animation-delay: .3s;
+}
+
+.carousel.effect .item.active {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    animation: animationClipPath .9s ease-in-out 1 forwards;
+}
+
+@keyframes animationClipPath {
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+.carousel.effect {
+    --transform: 300px;
+}
+
+.carousel.effect .item.active {
+    --transform-from: calc(var(--transform) * -1);
+    --transform-to: 0px;
+}
+
+.carousel.effect .item {
+    --transform-from: 0;
+    --transform-to: var(--transform);
+}
+
+
+
+
+
+
+
+
+
+
+
+
